@@ -1,0 +1,39 @@
+  <p>character-list works!</p>
+
+  <p p>Duomenys naudojami iš:
+
+    <a href="https://rickandmortyapi.com/api/character" target="_blank">
+      Rickandmortyapi.com
+    </a>
+    </p>
+  
+    <h1 class="mb-3">Rick And Morty Veikejai</h1>
+
+    
+    <div class="col-6 mb-3">
+      <button class="btn btn-secondary" (click)="nextPage()">
+        NEXT page
+      </button>
+    </div>
+
+  <div class="row col-12">    
+    
+      <div class="col-sm-3  mb-3" *ngFor="let character of characters">
+        <div class="card">
+          <div class="card-img-top">
+            <img [src]="character.image" [alt]="character.name" class="img-fluid" />
+          </div >
+          <div class="card-body">
+            <div class="card-header">
+              <h4>
+                {{ character.name }}
+              </h4>              
+            </div>
+            <p class="card-text">  </p>            
+          </div>  
+        </div>  
+    
+      </div>
+  </div>
+
+  
