@@ -23,12 +23,20 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { EpisodeCardComponent } from './episode-card/episode-card.component';
+import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
+import { EpisodesListComponent } from './episodes-list/episodes-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListComponent,
     CharacterDetailsComponent,
+    HeaderComponent,
+    EpisodeCardComponent,
+    CharacterEpisodesListComponent,
+    EpisodesListComponent,
   ],
   imports: [
     BrowserModule,

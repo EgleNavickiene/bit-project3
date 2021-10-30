@@ -10,34 +10,55 @@ import {HttpParams} from "@angular/common/http";
 /* Service tipo klases atsakingos uz darba su duomenimis */
 export class CharacterService {
 
-  //Inject
+   //Konstruktorius
+  // Objekto klases kintamasis, pasiekiamas visoje klaseje
+  // url kintamasis, nurodo i koki API endpoint'a krepsimes
+  // Dokumentacija kokie duomenys grazinami:
+  // https://rickandmortyapi.com/documentation/#character-schema
+  private url: string = 'https://rickandmortyapi.com/api/character';
+  // Iskeltas kintamasis, nes ji naudosime skritingose funkcijose,
+  // character service api visada prasideda: 'https://rickandmortyapi.com/api/character'
+
+  // Injectiname angular HttpClient
   constructor(private http: HttpClient) {
     // kolkas konstruktoriuje nedarom nieko
+
   }
 
   // Klases metodai/funkcijos
 
   // Susikureme nauja funkcija, gauti veikeju duomenims
-  //parametrai - page (klaustukas nurodo, kad sitas par. neprivalomas)
-  getCharacters(page? : number ) {
 
-    const params = new HttpParams()
-    if(page) {
-      params.set('page', page)
-      .set('orderBy', '"$key"')
-      .set('page', '1');
-    }    
+  /*
+    Parametrai:
+    page - Klaustukas gale nurodo, kad sitas parametras nera privalomas
+    : number - nurodo tipa, kad tai turi buti skaicius
+  */
+  getCharacters(page: number, name?: string) {
+    console.log("Page parametras");
+    console.log(page);
 
-    //API endpoint
+    // Sukuriamas angular Http Parametru objektas
+    let params = new HttpParams();
+    // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
+    // Pries siunciant uzklausa
+    params = params.append('page', page);
 
-    let url = 'https://rickandmortyapi.com/api/character';
+    console.log("API Uzklausa:");
+    console.log(this.url);
 
-    //siunciam GET i nurodyta url
-    let data = this.http.get(url, {params});
+    // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
+    let data = this.http.get(this.url, { params });
 
     return data;
-
   }
 
 
+  /* TODO: Kaip atvaizduoti klaida, jei API grazina klaidinga atsakyma */
+  getCharacter(id: string | null) {
+    let data = this.http.get(this.url + "/" + id);
+
+    return data;
+  }
 }
+

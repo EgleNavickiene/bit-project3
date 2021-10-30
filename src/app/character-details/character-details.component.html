@@ -1,1 +1,56 @@
-<p>character-details works!</p>
+<div class="row"  *ngIf="character">
+    <!-- Patikriname ar character informacija jau uzkrauta
+      API Requestas uztrunka ilgiau nei html atvaizdavimas
+    -->
+    <div class="row d-flex justify-content-start">
+      <div class="col-6">
+        <a routerLink="/"> Back</a>
+        <h1>{{ character?.name }}</h1>
+        <!-- Nuorodos i isorinius tinklapius, dazniausiai turi buti target="_blank" -->
+        <small>Data from: <a href="{{ character.url }}" target="_blank">RickAndMortyApi.com</a></small>
+      </div>
+        
+
+      <div class="col-4">
+  
+        <img src="{{ character.image }}" [alt]="character.name" class="rounded img-fluid mb-3" />
+        <!-- TODO: Prideti ikonas is font awesome pagal skirtingus laukelius -->
+        <ul>
+          <li>Location: {{ character.location.name }}</li>
+          <!-- Pavyzdys su ngIf -->
+          <!-- Pridedama .toLowerCase() , kad statusas butu suprantamas vienodai, nes Alive != alive -->
+          <li *ngIf="character.status.toLowerCase() === 'alive'" class="text-success">
+            Status: {{ character.status }}
+          </li>
+    
+          <li *ngIf="character.status.toLowerCase() === 'dead'" class="text-danger">
+            Status: {{ character.status }}
+          </li>
+    
+              <!-- TODO:  -->   
+          <!-- Vietoj ngIf galima naudoti
+            Naudingos nuorodos:
+            https://stackoverflow.com/a/66768960/1028193
+            https://angular.io/api/common/NgClass#description
+          -->
+          <!-- PVZ su ngClass, prideti kitokia klase, priklausomai nuo reiksmes -->
+          <li [ngClass]="{ 'text-danger' : character.status == 'Dead', 'text-success' : character.status == 'Alive' }">
+            Status: {{ character.status }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12">
+      
+      <hr>
+      <!-- TODO: Character Episodes dali isketi i atskira komponenta -->
+      <h2>Character Episodes</h2>
+      <app-character-episodes-list [character]="character"></app-character-episodes-list>
+  
+  
+    </div>
+    
+  </div>
+  
+  <!-- Jei character kintamasis neturi reiksmes (ji dar neatkeliavo is api uzklausos) rodome loading elementa -->
+  <div class="loader w-100 text-center mt-3" *ngIf="character == undefined">Loading....</div>

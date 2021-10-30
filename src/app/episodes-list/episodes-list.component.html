@@ -1,0 +1,15 @@
+<p>episodes-list works!</p>
+
+<div class="row col" >
+    <!-- TODO: Neturime episode service, kad galetume gauti duomenis apie epizoda -->
+    <!-- Si dalis galetu buti atskiras komponentas atvaizduoti epizodams -->
+    <!-- Šiame komponente negalime pasiekti character kintamojo, turime ji perduoti per @Input
+    Dokumentacija, kaip perduoti informacija i kita komponenta parent >> child: https://angular.io/guide/inputs-outputs
+    -->
+    <div class="col-4" *ngFor="let episode of episodes">
+        {{episode}}
+    
+    </div>
+   
+  
+  </div>

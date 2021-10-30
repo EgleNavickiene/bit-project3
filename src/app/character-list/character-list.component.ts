@@ -18,8 +18,7 @@ export class CharacterListComponent implements OnInit {
   constructor(private _characterSevice: CharacterService) { }
 
   ngOnInit(): void {
-    this.getCharacters();
-    
+    this.getCharacters();    
   }
 
   getCharacters() {
@@ -41,5 +40,24 @@ export class CharacterListComponent implements OnInit {
 
   nextPage() {
     this.page  ++ ;
+
+    console.log("Next page:");
+    console.log(this.page);
+
+    this.getCharacters();
   }
+
+  previousPage() {
+
+    // Patikriname ar page reiksme nera neigiama, -1 puslapio nera
+    if(this.page > 1) {
+      this.page--;
+    }
+
+    // Iskvieciame characters service atnaujinti duomenis
+    this.getCharacters();
+  }
+
+
+  
 }
