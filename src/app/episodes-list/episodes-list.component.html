@@ -1,15 +1,38 @@
-<p>episodes-list works!</p>
 
-<div class="row col" >
+<div class="row">
+    <div class="col-6 d-flex align-items-end">
+        <p>Episoeds List - Page {{page}} of {{ episodesInfo.pages}}</p>
+    </div>
+    <div class="col-6 mb-3 text-end">
+        <button class="btn btn-outline-dark ms-1 mt-1" (click)="previousPage()">
+            PREVIOUS page  
+          </button>
+          <button class="btn btn-outline-dark ms-1 mt-1" (click)="nextPage()">
+            NEXT page
+          </button>
+    </div>
+</div>
+
+
+<div class="row d-flex align-items-stretch" >
     <!-- TODO: Neturime episode service, kad galetume gauti duomenis apie epizoda -->
     <!-- Si dalis galetu buti atskiras komponentas atvaizduoti epizodams -->
     <!-- Šiame komponente negalime pasiekti character kintamojo, turime ji perduoti per @Input
     Dokumentacija, kaip perduoti informacija i kita komponenta parent >> child: https://angular.io/guide/inputs-outputs
     -->
-    <div class="col-4" *ngFor="let episode of episodes">
-        {{episode}}
+    <div class="col-4 mb-3" *ngFor="let episode of episodes">
+        <div class="card text-center bg-primary text-light" >
+            
+            <div class="card-header" >
+                <p>Episode  {{episode.id}} ({{episode.episode}})</p>
+                <h5>{{episode.name}}</h5>               
+            </div>
+            <div class="card-text pb-3">
+                <p> Date: {{episode.air_date}}</p>
+                <a href="{{episode.url}}" class="text-warning"> Episode details </a>
+            </div>
+        </div>        
     
-    </div>
-   
+    </div>   
   
   </div>

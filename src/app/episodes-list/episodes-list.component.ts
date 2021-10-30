@@ -8,19 +8,45 @@ import { EpisodeService } from '../episode.service';
 })
 export class EpisodesListComponent implements OnInit {
 
-  public episodes = [];
+  public episodes : any  = [];
   public episodesInfo: any = {};
+
+  public page : number = 1;
 
   constructor(private _episodeService: EpisodeService) { }
 
   ngOnInit(): void {
-    this._episodeService.getEpisodes(1).subscribe((data: any) => {
+    this.getEpisodes();
+  }
+
+  getEpisodes() {
+    this.episodes = this._episodeService.getEpisodes(this.page)
+    .subscribe((data: any) => {
       this.episodes = data.results;
       this.episodesInfo = data.info;
       console.log(this.episodes);
+    });
+  }
+  
+
+  nextPage() {
+    this.page  ++ ;
+
+    console.log("Next page:");
+    console.log(this.page);
+
+    this.getEpisodes();
+  }
+
+  previousPage() {
+
+    // Patikriname ar page reiksme nera neigiama, -1 puslapio nera
+    if(this.page > 1) {
+      this.page--;
     }
-    
-    );
+
+    // Iskvieciame characters service atnaujinti duomenis
+    this.getEpisodes();
   }
 
 }
