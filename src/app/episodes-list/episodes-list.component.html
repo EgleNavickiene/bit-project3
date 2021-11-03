@@ -1,8 +1,10 @@
 
 <div class="row">
     <div class="col-6 d-flex align-items-end">
-        <p>Episoeds List - Page {{page}} of {{ episodesInfo.pages}}</p>
+        <p>Episodes List - Page {{page}} of {{ episodesInfo.pages}}</p>
+        <a href="https://rickandmortyapi.com/documentation/#episode-schema" target="_blank">Episodes data docs</a>
     </div>
+    
     <div class="col-6 mb-3 text-end">
         <button class="btn btn-outline-primary ms-1 mt-1" (click)="previousPage()">
             PREVIOUS page  
@@ -21,6 +23,8 @@
     Dokumentacija, kaip perduoti informacija i kita komponenta parent >> child: https://angular.io/guide/inputs-outputs
     -->
     <div class="col-4 mb-3" *ngFor="let episode of episodes">
+
+        <!-- <app-episode-card [episode]='episode'></app-episode-card> -->
         <div class="card text-center bg-primary text-light" >
             
             <div class="card-header" >

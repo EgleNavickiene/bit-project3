@@ -9,8 +9,9 @@ import { EpisodeService } from '../episode.service';
 export class EpisodeCardComponent implements OnInit {
 
   // Cia gauname url reiksme pagal kuria epizodo komponentui reikia gauti duomenis is service
-  @Input() episodeUrl : any; // decorate the property with @Input()
+  @Input() episodeUrl? : any; // decorate the property with @Input()
   public episode : any;
+  // @Input() episode? : Episode;
 
 
   constructor(private _episodeService: EpisodeService) { }

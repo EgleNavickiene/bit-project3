@@ -8,7 +8,9 @@ import { EpisodeService } from '../episode.service';
 })
 export class EpisodesListComponent implements OnInit {
 
-  public episodes : any  = [];
+  public episodes? : any  = [];
+  //public episodes? : Episode[];
+  
   public episodesInfo: any = {};
 
   public page : number = 1;
