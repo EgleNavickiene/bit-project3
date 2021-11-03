@@ -4,10 +4,10 @@
         <p>Episoeds List - Page {{page}} of {{ episodesInfo.pages}}</p>
     </div>
     <div class="col-6 mb-3 text-end">
-        <button class="btn btn-outline-dark ms-1 mt-1" (click)="previousPage()">
+        <button class="btn btn-outline-primary ms-1 mt-1" (click)="previousPage()">
             PREVIOUS page  
           </button>
-          <button class="btn btn-outline-dark ms-1 mt-1" (click)="nextPage()">
+          <button class="btn btn-outline-primary ms-1 mt-1" (click)="nextPage()">
             NEXT page
           </button>
     </div>
@@ -27,8 +27,14 @@
                 <p>Episode  {{episode.id}} ({{episode.episode}})</p>
                 <h5>{{episode.name}}</h5>               
             </div>
-            <div class="card-text pb-3">
+            <div class="card-text pt-1 pb-1">
                 <p> Date: {{episode.air_date}}</p>
+                <div>
+                    Characters Count: {{ episode.characters.length }}
+                  </div>
+                
+            </div>
+            <div class="card-footer">
                 <a href="{{episode.url}}" class="text-warning"> Episode details </a>
             </div>
         </div>        

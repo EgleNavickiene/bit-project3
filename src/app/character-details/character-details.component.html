@@ -27,12 +27,12 @@
             Status: {{ character.status }}
           </li>
     
-              <!-- TODO:  -->   
-          <!-- Vietoj ngIf galima naudoti
-            Naudingos nuorodos:
-            https://stackoverflow.com/a/66768960/1028193
-            https://angular.io/api/common/NgClass#description
-          -->
+                  <!-- TODO:  -->   
+                <!-- Vietoj ngIf galima naudoti
+                Naudingos nuorodos:
+                https://stackoverflow.com/a/66768960/1028193
+                https://angular.io/api/common/NgClass#description
+              -->
           <!-- PVZ su ngClass, prideti kitokia klase, priklausomai nuo reiksmes -->
           <li [ngClass]="{ 'text-danger' : character.status == 'Dead', 'text-success' : character.status == 'Alive' }">
             Status: {{ character.status }}
