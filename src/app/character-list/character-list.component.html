@@ -41,6 +41,10 @@
   <div class="row col-12 d-flex justify-content-center m-auto">    
     
       <div class="col-lg-4 col-sm-6  mb-3" *ngFor="let character of characters">
+
+        <app-character-card [character] = "character"></app-character-card>
+
+        <!-- perkelsim -->
         <div class="card text-center " >
           <div class="card-img-top">
             <img [src]="character.image" [alt]="character.name" class="img-fluid " />

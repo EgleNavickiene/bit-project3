@@ -27,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
 import { EpisodeCardComponent } from './episode-card/episode-card.component';
 import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
 import { EpisodesListComponent } from './episodes-list/episodes-list.component';
+import { CharacterCardComponent } from './character-card/character-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EpisodesListComponent } from './episodes-list/episodes-list.component';
     EpisodeCardComponent,
     CharacterEpisodesListComponent,
     EpisodesListComponent,
+    CharacterCardComponent,
   ],
   imports: [
     BrowserModule,
