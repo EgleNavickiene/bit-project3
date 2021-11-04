@@ -28,6 +28,7 @@ import { EpisodeCardComponent } from './episode-card/episode-card.component';
 import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
 import { EpisodesListComponent } from './episodes-list/episodes-list.component';
 import { CharacterCardComponent } from './character-card/character-card.component';
+import { EpisodeDetailsComponent } from './episode-details/episode-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CharacterCardComponent } from './character-card/character-card.componen
     CharacterEpisodesListComponent,
     EpisodesListComponent,
     CharacterCardComponent,
+    EpisodeDetailsComponent,
   ],
   imports: [
     BrowserModule,
