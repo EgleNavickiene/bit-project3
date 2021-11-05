@@ -1,19 +1,15 @@
-<p>character-card works!</p>
 
-
-    <div class="card text-center " >
-          <div class="card-img-top">
-            <img [src]="character.image" [alt]="character.name" class="img-fluid " />
+    <div class="card text-center mb-3 outline-primary" >
+          <div class="card-img-top pt-3">
+            <img [src]="character.image" [alt]="character.name" class="img-fluid character-image" />
           </div >
-          <div class="card " routerLink="character/{{ character.id }}">
+          <div class="card " routerLink="/character/{{ character.id }}">
             <div class="card-header">
               <h4 class="text-black-50">
                 {{ character.name }}
               </h4>              
             </div>
-            <p class="card-text"> 
-                        
-            </p>               
+                         
             <div class="card-footer">
               
               <button class="btn btn-light text-primary">About <br> {{ character.name }}  </button>

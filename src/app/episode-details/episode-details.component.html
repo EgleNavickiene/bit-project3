@@ -11,14 +11,12 @@
     </p>
   
     <h3>
-      Epizodo Veikejai:
+      Epizode Characters:
     </h3>
-    <ul>
-      <li *ngFor="let character of episode.characters">
-        <a href="{{ character }}" target="_blank">
-          {{ character }}
-        </a>
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-sm-4 mb-3" *ngFor="let character of characters">
+        <app-character-card [character]="character"></app-character-card>
+      </div>
+    </div>
   </div>
 

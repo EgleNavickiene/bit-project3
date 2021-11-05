@@ -26,9 +26,7 @@ export class CharacterService {
   }
 
   // Klases metodai/funkcijos
-
   // Susikureme nauja funkcija, gauti veikeju duomenims
-
   /*
     Parametrai:
     page - Klaustukas gale nurodo, kad sitas parametras nera privalomas

@@ -19,13 +19,13 @@
           <li>Location: {{ character.location.name }}</li>
           <!-- Pavyzdys su ngIf -->
           <!-- Pridedama .toLowerCase() , kad statusas butu suprantamas vienodai, nes Alive != alive -->
-          <li *ngIf="character.status.toLowerCase() === 'alive'" class="text-success">
+          <!-- <li *ngIf="character.status.toLowerCase() === 'alive'" class="text-success">
             Status: {{ character.status }}
           </li>
     
           <li *ngIf="character.status.toLowerCase() === 'dead'" class="text-danger">
             Status: {{ character.status }}
-          </li>
+          </li> -->
     
                   <!-- TODO:  -->   
                 <!-- Vietoj ngIf galima naudoti

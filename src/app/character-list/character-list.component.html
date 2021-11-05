@@ -20,10 +20,10 @@
         
         <div class="justify-content-md-end">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-outline-dark ms-1 mt-1" (click)="previousPage()">
+            <button class="btn btn-outline-primary ms-1 mt-1" (click)="previousPage()">
               PREVIOUS page  
             </button>
-            <button class="btn btn-outline-dark ms-1 mt-1" (click)="nextPage()">
+            <button class="btn btn-outline-primary ms-1 mt-1" (click)="nextPage()">
               NEXT page
             </button>
   
@@ -38,13 +38,13 @@
     </div>
     
 
-  <div class="row col-12 d-flex justify-content-center m-auto">    
+  <div class="row col-12 d-flex  m-auto">    
     
       <div class="col-lg-4 col-sm-6  mb-3" *ngFor="let character of characters">
 
         <app-character-card [character] = "character"></app-character-card>
 
-        <!-- perkelsim i character-card -->
+      <!-- perkelsim i character-card -->
         <!-- <div class="card text-center " >
           <div class="card-img-top">
             <img [src]="character.image" [alt]="character.name" class="img-fluid " />
@@ -64,7 +64,7 @@
             </div>
           </div>  
         </div>   -->
-        <!-- perkelsim -->
+      <!-- perkelta -->
     
       </div>
   </div>
