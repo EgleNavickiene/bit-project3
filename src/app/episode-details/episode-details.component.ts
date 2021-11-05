@@ -38,7 +38,7 @@ export class EpisodeDetailsComponent implements OnInit {
     this._episodeService.getEpisode(this.id).subscribe(
       // Javascript callback dalis, ivykdoma, kai gaunami is api
       (data : any) => {
-      //2. Ivykdomas callback gavus duomenis is api
+      //2. Ivykdomas callback gavus duomenis is API
       this.episode = data;
       console.log(this.episode);
 
@@ -51,17 +51,14 @@ export class EpisodeDetailsComponent implements OnInit {
   getCharacters() {
     // Patikriname ar episodo kintamasis turi duomenis
     if(this.episode) {
-
       // Pereiname per visus episodu veikeju masyvo elementus
       for(let i = 0; i < this.episode.characters.length; i++) {
-
         /*
         this.episode.characters[i] - string
-        elemento reikes pvz: https://rickandmortyapi.com/api/character/435   ---------!--------
+        elemento reikšmės pvz: https://rickandmortyapi.com/api/character/435   
          */
         let temp : string = this.episode.characters[i].replace("https://rickandmortyapi.com/api/character/", "");
-
-        // Suformatuojame character ID is url temp kintamajame
+        // Suformatuojame character ID iš url temp kintamajame
         // console.log("this.episode.characters[i]: " + this.episode.characters[i]);
         // console.log("i: " + i);
         // console.log("temp: " + temp);

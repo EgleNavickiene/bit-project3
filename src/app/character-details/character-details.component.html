@@ -13,7 +13,7 @@
 
       <div class="col-4">
   
-        <img src="{{ character.image }}" [alt]="character.name" class="rounded img-fluid mb-3" />
+        <img src="{{ character.image }}" [alt]="character.name" class="mb-3 character-image" />
         <!-- TODO: Prideti ikonas is font awesome pagal skirtingus laukelius -->
         <ul>
           <li>Location: {{ character.location.name }}</li>
@@ -44,7 +44,7 @@
       
       <hr>
       <!-- TODO: Character Episodes dali isketi i atskira komponenta -->
-      <h2>Character Episodes</h2>
+      <h2 class="text-primary">Character Episodes</h2>
       <app-character-episodes-list [character]="character"></app-character-episodes-list>
   
   
