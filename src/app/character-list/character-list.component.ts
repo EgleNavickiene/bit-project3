@@ -39,8 +39,13 @@ export class CharacterListComponent implements OnInit {
   }
 
   nextPage() {
-    this.page  ++ ;
 
+    if(this.page < this.charactersInfo.pages) {
+      this.page  ++ ;
+    } else {
+      alert("This is a last page");
+    }
+    
     console.log("Next page:");
     console.log(this.page);
 

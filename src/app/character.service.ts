@@ -42,6 +42,10 @@ export class CharacterService {
     // Pries siunciant uzklausa
     params = params.append('page', page);
 
+    if(name) {
+      params.append('name', name);
+    }
+
     console.log("API Uzklausa:");
     console.log(this.url);
 
@@ -58,5 +62,6 @@ export class CharacterService {
 
     return data;
   }
+
 }
 

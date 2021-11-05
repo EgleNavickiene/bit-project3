@@ -29,7 +29,13 @@ export class EpisodesListComponent implements OnInit {
   }  
 
   nextPage() {
-    this.page  ++ ;
+
+    if(this.page < this.episodesInfo.pages) {
+      this.page ++ ;
+    } else {
+      alert ("This is a last page");
+    }
+    
 
     console.log("Next page:");
     console.log(this.page);
