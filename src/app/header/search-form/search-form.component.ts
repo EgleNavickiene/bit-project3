@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-form',
@@ -9,7 +9,7 @@ export class SearchFormComponent implements OnInit {
   //kintamasis input ivestiems duomenims
   public searcString: string =  '';
 
-  // @Output() onFormSubmit : EventEmitter<string> = new EventEmitter<string>();
+  @Output() onFormSubmit : EventEmitter<string> = new EventEmitter<string>();
 
 
   constructor() { }
@@ -19,7 +19,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   searchFormSubmit(){
-   // this.onFormSubmit.emit(searcString);
+   this.onFormSubmit.emit(this.searcString);
   }
 
 }

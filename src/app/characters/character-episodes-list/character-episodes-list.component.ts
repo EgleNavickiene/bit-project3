@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EpisodeService } from '../episode.service';
+import { EpisodeService } from '../../services/episode.service';
 
 @Component({
   selector: 'app-character-episodes-list',
