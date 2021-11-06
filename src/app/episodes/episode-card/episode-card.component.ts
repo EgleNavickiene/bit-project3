@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EpisodeService } from '../episode.service';
+import { Episode } from '../../interfaces/episode';
+import { EpisodeService } from '../../services/episode.service';
 
 @Component({
   selector: 'app-episode-card',
@@ -10,21 +11,20 @@ export class EpisodeCardComponent implements OnInit {
 
   // Cia gauname url reiksme pagal kuria epizodo komponentui reikia gauti duomenis is service
   @Input() episodeUrl : any; // decorate the property with @Input()
-  public episode : any;
+  @Input() episode? : Episode;
 
 
   constructor(private _episodeService: EpisodeService) { }
 
   ngOnInit(): void {
 
-    console.log("Character Episode List Component Duomenys");
-    console.log(this.episode);
-
-
-    this._episodeService.getEpisodeByUrl(this.episodeUrl).subscribe(data => {
-      this.episode = data;
-      console.log(this.episode);
-    });
+    //console.log(this.episode);
+    if(this.episodeUrl) { //  undefined
+      this._episodeService.getEpisodeByUrl(this.episodeUrl).subscribe((data : any) => {
+        this.episode = data;
+        // console.log(this.episode);
+      });
+    }
   }
 
 }

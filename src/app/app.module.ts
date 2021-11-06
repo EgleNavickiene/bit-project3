@@ -4,9 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterListComponent } from './character-list/character-list.component';
-import { CharacterDetailsComponent } from './character-details/character-details.component';
-import { CharacterService } from './character.service';
+import { CharacterListComponent } from './characters/character-list/character-list.component';
+import { CharacterDetailsComponent } from './characters/character-details/character-details.component';
+import { CharacterService } from './services/character.service';
+
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
@@ -23,10 +24,15 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
 import { HeaderComponent } from './header/header.component';
-import { EpisodeCardComponent } from './episode-card/episode-card.component';
-import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
-import { EpisodesListComponent } from './episodes-list/episodes-list.component';
+import { EpisodeCardComponent } from './episodes/episode-card/episode-card.component';
+import { CharacterEpisodesListComponent } from './characters/character-episodes-list/character-episodes-list.component';
+import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
+import { CharacterCardComponent } from './characters/character-card/character-card.component';
+import { EpisodeDetailsComponent } from './episodes/episode-details/episode-details.component';
+import { SearchFormComponent } from './header/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,9 @@ import { EpisodesListComponent } from './episodes-list/episodes-list.component';
     EpisodeCardComponent,
     CharacterEpisodesListComponent,
     EpisodesListComponent,
+    CharacterCardComponent,
+    EpisodeDetailsComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,7 @@ import { EpisodesListComponent } from './episodes-list/episodes-list.component';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
     CharacterService

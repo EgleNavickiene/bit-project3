@@ -13,19 +13,19 @@
 
       <div class="col-4">
   
-        <img src="{{ character.image }}" [alt]="character.name" class="rounded img-fluid mb-3" />
+        <img src="{{ character.image }}" [alt]="character.name" class="mb-3 character-image" />
         <!-- TODO: Prideti ikonas is font awesome pagal skirtingus laukelius -->
         <ul>
           <li>Location: {{ character.location.name }}</li>
           <!-- Pavyzdys su ngIf -->
           <!-- Pridedama .toLowerCase() , kad statusas butu suprantamas vienodai, nes Alive != alive -->
-          <li *ngIf="character.status.toLowerCase() === 'alive'" class="text-success">
+          <!-- <li *ngIf="character.status.toLowerCase() === 'alive'" class="text-success">
             Status: {{ character.status }}
           </li>
     
           <li *ngIf="character.status.toLowerCase() === 'dead'" class="text-danger">
             Status: {{ character.status }}
-          </li>
+          </li> -->
     
                   <!-- TODO:  -->   
                 <!-- Vietoj ngIf galima naudoti
@@ -44,7 +44,8 @@
       
       <hr>
       <!-- TODO: Character Episodes dali isketi i atskira komponenta -->
-      <h2>Character Episodes</h2>
+      <h2 class="text-primary">Character Episodes</h2>
+      <hr>
       <app-character-episodes-list [character]="character"></app-character-episodes-list>
   
   

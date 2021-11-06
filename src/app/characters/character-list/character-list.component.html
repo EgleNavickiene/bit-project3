@@ -1,5 +1,5 @@
   
-  <p p>Duomenys naudojami iš:
+  <p p>Data sourse:
 
     <a href="https://rickandmortyapi.com/api/character" target="_blank">
       Rickandmortyapi.com
@@ -7,23 +7,23 @@
     </p>
   
     <h1 class="mb-3 text-primary">Rick And Morty Characters</h1>
-
+    <div>
+      <small>total characters: {{ charactersInfo.count }}</small>  
+    </div>
+    
     <div class="row mb-3">
-      <div class="col-6">
-        <div>
-          <small>total characters: {{ charactersInfo.count }}</small>  
-        </div>
-             
+      <div class="col-6 mt-3">
+        <app-search-form (onFormSubmit)="filterCharacters($event)"></app-search-form>             
       </div>
   
-      <div class="col-6 mb-1 text-end ">
+      <div class="col-6 mb-1 text-end mt-3">
         
         <div class="justify-content-md-end">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-outline-dark ms-1 mt-1" (click)="previousPage()">
+            <button class="btn btn-outline-primary ms-1 mt-1" (click)="previousPage()">
               PREVIOUS page  
             </button>
-            <button class="btn btn-outline-dark ms-1 mt-1" (click)="nextPage()">
+            <button class="btn btn-outline-primary ms-1 mt-1" (click)="nextPage()">
               NEXT page
             </button>
   
@@ -38,10 +38,14 @@
     </div>
     
 
-  <div class="row col-12 d-flex justify-content-center m-auto">    
+  <div class="row col-12 d-flex  m-auto">    
     
       <div class="col-lg-4 col-sm-6  mb-3" *ngFor="let character of characters">
-        <div class="card text-center " >
+
+        <app-character-card [character] = "character"></app-character-card>
+
+      <!-- perkelsim i character-card -->
+        <!-- <div class="card text-center " >
           <div class="card-img-top">
             <img [src]="character.image" [alt]="character.name" class="img-fluid " />
           </div >
@@ -59,7 +63,8 @@
               <button class="btn btn-light text-primary">About <br> {{ character.name }}  </button>
             </div>
           </div>  
-        </div>  
+        </div>   -->
+      <!-- perkelta -->
     
       </div>
   </div>

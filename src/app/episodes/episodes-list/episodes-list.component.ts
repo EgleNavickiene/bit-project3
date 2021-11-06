@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EpisodeService } from '../episode.service';
+import { EpisodeService } from '../../services/episode.service';
+import { Episode } from '../../interfaces/episode'
 
 @Component({
   selector: 'app-episodes-list',
@@ -8,7 +9,7 @@ import { EpisodeService } from '../episode.service';
 })
 export class EpisodesListComponent implements OnInit {
 
-  public episodes : any  = [];
+  public episodes? : Episode[];
   public episodesInfo: any = {};
 
   public page : number = 1;
@@ -20,17 +21,21 @@ export class EpisodesListComponent implements OnInit {
   }
 
   getEpisodes() {
-    this.episodes = this._episodeService.getEpisodes(this.page)
-    .subscribe((data: any) => {
+    this._episodeService.getEpisodes(this.page).subscribe((data : any) => {
       this.episodes = data.results;
       this.episodesInfo = data.info;
       console.log(this.episodes);
     });
-  }
-  
+  }  
 
   nextPage() {
-    this.page  ++ ;
+
+    if(this.page < this.episodesInfo.pages) {
+      this.page ++ ;
+    } else {
+      alert ("This is a last page");
+    }
+    
 
     console.log("Next page:");
     console.log(this.page);
