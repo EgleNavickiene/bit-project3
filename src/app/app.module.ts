@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CharacterListComponent } from './characters/character-list/character-list.component';
 import { CharacterDetailsComponent } from './characters/character-details/character-details.component';
 import { CharacterService } from './services/character.service';
+
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
@@ -23,6 +24,8 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
 import { HeaderComponent } from './header/header.component';
 import { EpisodeCardComponent } from './episodes/episode-card/episode-card.component';
 import { CharacterEpisodesListComponent } from './characters/character-episodes-list/character-episodes-list.component';
@@ -64,6 +67,7 @@ import { SearchFormComponent } from './header/search-form/search-form.component'
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
     CharacterService

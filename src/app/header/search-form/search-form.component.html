@@ -1,15 +1,15 @@
 
-<form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
+  <form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
     <input
       type="text"
       class="form-control"
       placeholder="Type Character Name"
       aria-label="Search"
-      
+      [(ngModel)]="searcString"
     />
     <!-- [(ngModel)]="searcString" -->
-    <input class="form-control"
-      type="submit"  data-mdb-ripple-color="light">
-      Search
+    <input type="submit" value="Search" 
+    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+      
     
   </form>

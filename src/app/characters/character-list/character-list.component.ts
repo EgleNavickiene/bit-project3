@@ -14,6 +14,11 @@ export class CharacterListComponent implements OnInit {
 
   public page : number = 1;
 
+  public searchOptions = {
+    'name': '',
+    'status': ''
+  }
+
   //"Inject" character service i komponenta
   constructor(private _characterSevice: CharacterService) { }
 
@@ -21,8 +26,14 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();    
   }
 
+  filterCharacters(name: string) {
+    // alert("Character List Komponentas Suzinojo apie onForm Submit Event'a is SearchForm komponento ");
+    this.searchOptions.name = name;
+    this.getCharacters();
+  }
+
   getCharacters() {
-// Characters kintamajam, priskiriame duomenis is 
+    // Characters kintamajam priskiriame duomenis is 
     //characterService getCharaters funkcijos
     this.characters = this._characterSevice.getCharacters(this.page)
         //Subsceibe naudojama su Obsevable tipo obj.
@@ -36,6 +47,8 @@ export class CharacterListComponent implements OnInit {
       });
 
     console.log(this.characters);
+
+
   }
 
   nextPage() {
@@ -62,7 +75,5 @@ export class CharacterListComponent implements OnInit {
     // Iskvieciame characters service atnaujinti duomenis
     this.getCharacters();
   }
-
-
   
 }
