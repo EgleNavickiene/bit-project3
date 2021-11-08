@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UIDataService } from 'src/app/services/uidata.service';
 import { CharacterService } from '../../services/character.service';
 
 @Component({
@@ -22,7 +23,10 @@ export class CharacterListComponent implements OnInit {
   }
 
   //"Inject" character service i komponenta
-  constructor(private _characterSevice: CharacterService) { }
+  constructor(
+    private _characterSevice: CharacterService,
+    private _UIDataService: UIDataService,
+    ) { }
 
   ngOnInit(): void {
     this.getCharacters();    
