@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UIDataService } from 'src/app/services/uidata.service';
 import { CharacterService } from '../../services/character.service';
 
+
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
@@ -9,27 +10,40 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-   // Veikeju masyvas, kurio duomenis uzpildysime is CharacterService
+  // Veikeju masyvas, kurio duomenis uzpildysime is CharacterService
   public characters: any = [];
   public charactersInfo: any = {};
 
+
   public errors: any;
 
-  public page : number = 1;
+  public page: number = 1;
 
   public searchOptions = {
     'name': '',
     'status': ''
   }
 
-  //"Inject" character service i komponenta
+  // "Injectiname" character service i komponenta
   constructor(
-    private _characterSevice: CharacterService,
-    private _UIDataService: UIDataService,
-    ) { }
+    private _characterService: CharacterService,
+    private _uiDataService: UIDataService
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.getCharacters();    
+
+          // Gauname duomenis UIData service
+    //this._uiDataService.getCharactersPage().subscribe((data: number) => {
+
+            // Priskiriame grazinta reiksme is dataService
+    //this.page = data;
+
+            // Pasikeitus puslapiui, atnaujiname veikeju sarasa
+      this.getCharacters();
+    //});
+
   }
 
   filterCharacters(name: string) {
@@ -39,49 +53,49 @@ export class CharacterListComponent implements OnInit {
   }
 
   getCharacters(name?: string) {
-    // Characters kintamajam priskiriame duomenis is 
-    //characterService getCharaters funkcijos
-    this.characters = this._characterSevice.getCharacters(this.page, this.searchOptions.name)
-        //Subsceibe naudojama su Obsevable tipo obj.
-        //Angular visada grazina Obsevable
-        //data - kint. su grazintais duomenimis is musu uzklausos
-      .subscribe((data: any) => {
-          // Jei uzklausa buvo ivykdyta sekmingai
-          // Success callback
-        this.characters = data.results;
-        this.charactersInfo = data.info;
-      },
+    this._characterService.getCharacters(this.page, this.searchOptions.name)
+      // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
+      // data - kintamasis su grazintais duomenimis is musu uzklausos
+      .subscribe(
+        // Jei uzklausa buvo ivykdyta sekmingai
+        // Success callback
+        (data: any) => {
+          // Gautus duomenis priskiriame komponento kintamajam
+          // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
+          this.characters = data.results;
+          this.charactersInfo = data.info;
+        },
 
-      // Jei grazintas error status code
-      // Error callback
-      (error: any) => {
+        // Jei grazintas error status code
+        // Error callback
+        (error: any) => {
 
-        // Patikriname error status koda
-        if (error.status == '404') {
-          alert("oops nothing found");
-          console.log(error);
+          // Patikriname error status koda
+          if (error.status == '404') {
+            // alert("oops nothing found");
+            console.log(error);
 
-          // Priskiriame error objekta savo komponento errors masyvui,
-          // kad galetume atvaizduoti klaidos pranesima template dalyje
-          this.errors = error;
+            // Priskiriame error objekta savo komponento errors masyvui,
+            // kad galetume atvaizduoti klaidos pranesima template dalyje
+            this.errors = error;
 
-          // Nustatome characters masyva i tuscia masyva, nes nebuvo rasta jokiu veikeju
-          this.characters = [];
-          // Taip pat pakeiciame charactersInfo objekto reiksmes pagal klaidos koda
-          this.charactersInfo.count = 0;
-          this.charactersInfo.pages = 0;
-        } else {
-          alert("oops went wrong");
+            // Nustatome characters masyva i tuscia masyva, nes nebuvo rasta jokiu veikeju
+            this.characters = [];
+            // Taip pat pakeiciame charactersInfo objekto reiksmes pagal klaidos koda
+            this.charactersInfo.count = 0;
+            this.charactersInfo.pages = 0;
+          } else {
+            alert("oops went wrong");
+          }
+
         }
 
-      }
-
-      // console.log(data);
-      /*
-      Dokumentacija kokie duomenys grazinami:
-      https://rickandmortyapi.com/documentation/#character-schema
-      */
-    );
+        // console.log(data);
+        /*
+        Dokumentacija kokie duomenys grazinami:
+        https://rickandmortyapi.com/documentation/#character-schema
+        */
+      );
   }
 
   nextPage() {
@@ -108,5 +122,5 @@ export class CharacterListComponent implements OnInit {
     // Iskvieciame characters service atnaujinti duomenis
     this.getCharacters();
   }
-  
+
 }

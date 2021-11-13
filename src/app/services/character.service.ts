@@ -22,7 +22,6 @@ export class CharacterService {
   // Injectiname angular HttpClient
   constructor(private http: HttpClient) {
     // kolkas konstruktoriuje nedarom nieko
-
   }
 
   // Klases metodai/funkcijos
