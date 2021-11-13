@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpParams} from "@angular/common/http";
 
 /* Angular Dekoratorius */
 @Injectable({
@@ -26,6 +25,10 @@ export class CharacterService {
 
   // Klases metodai/funkcijos
   // Susikureme nauja funkcija, gauti veikeju duomenims
+
+
+
+
   /*
     Parametrai:
     page - Klaustukas gale nurodo, kad sitas parametras nera privalomas
@@ -40,14 +43,19 @@ export class CharacterService {
     // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
     // Pries siunciant uzklausa
     params = params.append('page', page);
+    
 
+    // Jei i funkcija perduota name reiksme, prideti paieskos parametra prie uzklausos
+    // API Refference: https://rickandmortyapi.com/documentation/#character-schema
     if(name) {
       params.append('name', name);
     }
 
-    console.log("API Uzklausa:");
-    console.log(this.url);
+    //console.log("API Uzklausa:");
+    //console.log(this.url);
 
+
+    
     // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
     let data = this.http.get(this.url, { params });
 

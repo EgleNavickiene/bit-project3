@@ -11,6 +11,7 @@ kuri bus kvieciama, pateikus forma
     <input type="text" class="form-control"
       [(ngModel)]="searchString"
       (change)="searchFormSubmit()"
+      (keyup)="searchFormSubmit()"
       placeholder="Type Character Name"
       aria-label="Search" name="searchString"       
     />
