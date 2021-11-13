@@ -1,26 +1,52 @@
 <!-- (ngSubmit) - Event'as kai pateikiama forma
 (ngSubmit)="searchFromSubmit()"
 (ngSubmit) - event pavadinimas - pvz (click) arba (hover)
-searchFromSubmit() - funkcijos pavadinimas , komponente, 
-kuri bus kvieciama, pateikus forma
+searchFromSubmit() - funkcijos pavadinimas , komponente, kuri bus kvieciama, pateikus forma
 -->
-  <form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
 
-     <!-- (change) - event'as kuris suveikia kiekvieno laukelio pakeitimo metu -->
+<form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
+
+  <!-- Norint naudoti [(ngModel)] - butina importuoti
+    i app.module.ts  - FormsModule
+    import { FormsModule } from '@angular/forms';
+      ir prideti prie:
+    imports: [
+    ....,
+    FormsModule
+  ],
+    -->
+    <!-- (change) - event'as kuris suveikia kiekvieno laukelio pakeitimo metu -->
     <!-- (keyup) - event'as kuris suveikia kiekvieno mygtuko paspaudimo metu -->
-    <input type="text" class="form-control"
-      [(ngModel)]="searchString"
-      (change)="searchFormSubmit()"
-      (keyup)="searchFormSubmit()"
-      placeholder="Type Character Name"
-      aria-label="Search" name="searchString"       
-    />
-    
-    <input type="submit" value="Search" 
-    class="btn btn-outline-primary" data-mdb-ripple-color="dark">      
-    
-  </form>
+  <input type="text" class="form-control"
+  [(ngModel)]="searchString"
+  (change)="searchFormSubmit()"
+  (keyup)="searchFormSubmit()"
+  (keydown)="searchFormSubmit()"
+  placeholder="Type Character Name" aria-label="Search" name="searchString"
+  />
 
-  <div>
-    You are searching for: {{searchString}}
-  </div>
+  <!-- Elementas filtravimui pagal status -->
+  <select name="status" (change)="statusChange($event)">
+    <option value="all">Status: All</option>
+    <option value="alive">Alive</option>
+    <option value="dead">Dead</option>
+    <option value="unknown">Unknown</option>
+  </select>
+
+  <!-- Elementas filtravimui pagal gender -->
+  <select name="gender">
+    <option value="all">Gender: All</option>
+    <option value="female">female</option>
+    <option value="male">male</option>
+    <option value="genderless">genderless</option>
+    <option value="unknown">unknown</option>
+  </select>
+
+
+
+  <input type="submit" value="Search" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+
+</form>
+<div>
+  You are searching for: {{ searchString }}
+</div>
