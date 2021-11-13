@@ -10,8 +10,16 @@ export class HeaderComponent implements OnInit {
 
   @Input() public title: string;
 
+  // Tipas string masyvas []
+  private buttons : string[];
+
   constructor() {
     this.title = "Rick And Morty API - Angular"
+
+    this.buttons = [
+      'Button 1',
+      'Button 2'
+    ];
    }
 
    //Enkapsuliacija:

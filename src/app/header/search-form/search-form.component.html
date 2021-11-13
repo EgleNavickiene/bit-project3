@@ -1,15 +1,26 @@
-
+<!-- (ngSubmit) - Event'as kai pateikiama forma
+(ngSubmit)="searchFromSubmit()"
+(ngSubmit) - event pavadinimas - pvz (click) arba (hover)
+searchFromSubmit() - funkcijos pavadinimas , komponente, 
+kuri bus kvieciama, pateikus forma
+-->
   <form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
-    <input
-      type="text"
-      class="form-control"
+
+     <!-- (change) - event'as kuris suveikia kiekvieno laukelio pakeitimo metu -->
+    <!-- (keyup) - event'as kuris suveikia kiekvieno mygtuko paspaudimo metu -->
+    <input type="text" class="form-control"
+      [(ngModel)]="searchString"
+      (change)="searchFormSubmit()"
+      (keyup)="searchFormSubmit()"
       placeholder="Type Character Name"
-      aria-label="Search"
-      [(ngModel)]="searcString"
+      aria-label="Search" name="searchString"       
     />
     
     <input type="submit" value="Search" 
-    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-      
+    class="btn btn-outline-primary" data-mdb-ripple-color="dark">      
     
   </form>
+
+  <div>
+    You are searching for: {{searchString}}
+  </div>
