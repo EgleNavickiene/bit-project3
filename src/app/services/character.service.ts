@@ -48,7 +48,7 @@ export class CharacterService {
     // Jei i funkcija perduota name reiksme, prideti paieskos parametra prie uzklausos
     // API Refference: https://rickandmortyapi.com/documentation/#character-schema
     if(name) {
-      params.append('name', name);
+      params = params.append('name', name);
     }
 
     //console.log("API Uzklausa:");
